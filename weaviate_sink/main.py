@@ -28,8 +28,9 @@ if not client.collections.exists(collection_name):
                 data_type=wc.DataType.TEXT,
                 skip_vectorization=True,
             ),
-            wc.Property(name="reviewText", data_type=wc.DataType.TEXT),
+            wc.Property(name="review_text", data_type=wc.DataType.TEXT),
             wc.Property(name="summary", data_type=wc.DataType.TEXT),
+            wc.Property(name="rating", data_type=wc.DataType.NUMBER),
             wc.Property(
                 name="datetime", data_type=wc.DataType.TEXT, skip_vectorization=True
             ),
@@ -50,6 +51,7 @@ def sink(row):
                 "reviewer_id": row["reviewerID"],
                 "review_text": row["reviewText"],
                 "summary": row["summary"],
+                "rating": row["overall"],
                 "datetime": row["datetime"],
             },
         )
@@ -84,3 +86,6 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("Exiting.")
+    finally:
+        client.close()
+        logger.info("Weaviate connection closed. Existing")

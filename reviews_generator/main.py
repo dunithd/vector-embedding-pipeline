@@ -38,11 +38,11 @@ def main():
                 value=row.to_json()
             )
             logging.info(f"Produced {row["reviewerID"]}: {row.to_json}")
-            time.sleep(5)
+            time.sleep(2)
 
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("Exiting.")
+        print("Exiting")
