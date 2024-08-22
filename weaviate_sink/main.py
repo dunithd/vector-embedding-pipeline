@@ -88,4 +88,4 @@ if __name__ == "__main__":
         print("Exiting.")
     finally:
         client.close()
-        logger.info("Weaviate connection closed. Existing")
+        logger.info("Weaviate connection closed. Exiting")
