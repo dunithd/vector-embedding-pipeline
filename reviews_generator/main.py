@@ -37,7 +37,7 @@ def main():
                 key=row["reviewerID"],
                 value=row.to_json()
             )
-            logging.info(f"Produced {row["reviewerID"]}: {row.to_json}")
+            logging.info(f"Produced {row['reviewerID']}: {row.to_json}")
             time.sleep(2)
 
 
